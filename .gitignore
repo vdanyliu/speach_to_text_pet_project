@@ -1,0 +1,10 @@
+.idea/
+.pyc
+.env/
+venv/
+models/
+temp_data/
+config.yml
+*.json
+excluded/
+
