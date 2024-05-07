@@ -1,8 +1,5 @@
 
 ---
-
-# EVE TEST TASK
-
 ## Description
 Text to speach fastapi backend service
 
