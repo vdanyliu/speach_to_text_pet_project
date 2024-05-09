@@ -2,12 +2,12 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
 from text_to_speach.api import create_router
-from text_to_speach.platform.transcriptor import GoogleSpeachToTextTranscriptor
-from text_to_speach.service.speach_to_text import SpeachToTextService, ABCSpeachToTextService
+from text_to_speach.platform.transcriptor import GoogleSpeechToTextTranscriptor
+from text_to_speach.service.speech_to_text import SpeachToTextService, ABCSpeachToTextService
 
 
 def create_transcribe_service(app: FastAPI) -> ABCSpeachToTextService:
-    transcriptor = GoogleSpeachToTextTranscriptor()
+    transcriptor = GoogleSpeechToTextTranscriptor()
     transcribe_service = SpeachToTextService(transcriptor=transcriptor)
     app.add_event_handler("startup", transcribe_service._async_init)
     return transcribe_service

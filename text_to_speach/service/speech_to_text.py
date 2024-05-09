@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import IO, AsyncIterator
 
-from text_to_speach.platform.transcriptor import GoogleSpeachToTextTranscriptor
+from text_to_speach.platform.transcriptor import GoogleSpeechToTextTranscriptor
 
 
 class ABCSpeachToTextService(ABC):
@@ -16,7 +16,7 @@ class ABCSpeachToTextService(ABC):
 
 
 class SpeachToTextService(ABCSpeachToTextService):
-    def __init__(self, transcriptor: GoogleSpeachToTextTranscriptor):
+    def __init__(self, transcriptor: GoogleSpeechToTextTranscriptor):
         self._transcriptor = transcriptor
 
     async def _async_init(self):

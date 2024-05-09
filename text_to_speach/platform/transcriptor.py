@@ -16,7 +16,7 @@ class Config:
     google_credentials: str = pathlib.Path("./google_credentials.json")
 
 
-class GoogleSpeachToTextTranscriptor:
+class GoogleSpeechToTextTranscriptor:
     def __init__(self, config: Config = Config()):
         self.config = config
         self.cloud_config = cloud_speech.RecognitionConfig({
@@ -25,7 +25,7 @@ class GoogleSpeachToTextTranscriptor:
             "model": "long",
         })
 
-    async def _asyncinit(self) -> "GoogleSpeachToTextTranscriptor":
+    async def _asyncinit(self) -> "GoogleSpeechToTextTranscriptor":
         self.credentials: Credentials = Credentials.from_service_account_file(self.config.google_credentials)
         self.client = SpeechAsyncClient(credentials=self.credentials)
         return self

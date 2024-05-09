@@ -4,7 +4,7 @@ from typing import AsyncIterator, IO
 from fastapi import APIRouter, UploadFile, File, HTTPException
 from fastapi.responses import StreamingResponse
 
-from text_to_speach.service.speach_to_text import ABCSpeachToTextService
+from text_to_speach.service.speech_to_text import ABCSpeachToTextService
 
 
 def create_router(service: ABCSpeachToTextService) -> APIRouter:
