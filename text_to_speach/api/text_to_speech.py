@@ -4,10 +4,10 @@ from typing import AsyncIterator, IO
 from fastapi import APIRouter, UploadFile, File, HTTPException
 from fastapi.responses import StreamingResponse
 
-from text_to_speach.service.speech_to_text import ABCSpeachToTextService
+from text_to_speach.service.speech_to_text import ABCSpeechToTextService
 
 
-def create_router(service: ABCSpeachToTextService) -> APIRouter:
+def create_router(service: ABCSpeechToTextService) -> APIRouter:
     router = APIRouter(prefix='/transcribe', tags=['transcribe'])
 
     @router.post('/file')
@@ -25,7 +25,7 @@ def create_router(service: ABCSpeachToTextService) -> APIRouter:
 
         try:
             return StreamingResponse(
-                generate_massage(file=io.BytesIO(file.file.read())),media_type="text/event-stream")
+                generate_massage(file=io.BytesIO(file.file.read())), media_type="text/event-stream")
         except Exception as e:
             raise HTTPException(status_code=500, detail={"error_type": type(e).__name__, "message": str(e)})
 

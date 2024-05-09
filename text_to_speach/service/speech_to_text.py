@@ -5,7 +5,7 @@ from typing import IO, AsyncIterator
 from text_to_speach.platform.transcriptor import GoogleSpeechToTextTranscriptor
 
 
-class ABCSpeachToTextService(ABC):
+class ABCSpeechToTextService(ABC):
     @abstractmethod
     async def transcribe(self, data: IO[bytes]) -> IO[str]:
         pass
@@ -15,7 +15,7 @@ class ABCSpeachToTextService(ABC):
         pass
 
 
-class SpeachToTextService(ABCSpeachToTextService):
+class SpeechToTextService(ABCSpeechToTextService):
     def __init__(self, transcriptor: GoogleSpeechToTextTranscriptor):
         self._transcriptor = transcriptor
 
